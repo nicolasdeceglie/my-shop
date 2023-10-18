@@ -1,4 +1,4 @@
-import {CartItem} from "@/model/CartItem";
+import {CartItem} from "@/model/cart-item";
 import {create} from "zustand";
 import {Product} from "@/model/product";
 

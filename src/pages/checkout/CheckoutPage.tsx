@@ -1,17 +1,23 @@
 import clsx from 'clsx'
 import {useCheckout} from "./hooks/useCheckout";
+import {ServerError} from "@/shared/*";
 
 export function CheckoutPage() {
     const {
         validators,
         actions,
-        user, dirty, totalCartCost} = useCheckout();
+        user, dirty, totalCartCost,
+        error} = useCheckout();
+
     return (
         <div>
             <h1 className="title">CHECKOUT</h1>
             <div className="text-xl my-3 border-b">
                 € {totalCartCost}
             </div>
+
+            {error && <ServerError message={error} />}
+
             <form className="flex flex-col gap-3" onSubmit={actions.sendOrder}>
                 Your name:
                 <input type="text" placeholder="your name"

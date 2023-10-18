@@ -1,4 +1,4 @@
-import {CartItem} from "@/model/CartItem";
+import {CartItem} from "@/model/cart-item";
 
 
 export type OrderStatus = 'pending' | 'done';
