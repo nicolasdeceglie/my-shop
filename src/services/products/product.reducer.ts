@@ -14,7 +14,6 @@ export const initialState: ProductsState = {
     error: null
 }
 
-
 export function productsReducer(state: ProductsState, action: ProductsActions){
     const {type, payload} = action;
     console.log(action)
@@ -28,16 +27,18 @@ export function productsReducer(state: ProductsState, action: ProductsActions){
                 error: null,
                 activeItem: null}
         case 'productAddSuccess':
-            return {...state,
-                pending: false,
+            return {
+                ...state,
                 products: [...state.products, payload],
+                pending: false,
                 error: null,
                 activeItem: null}
         case 'productEditSuccess':
             return {...state,
                 pending: false,
                 products: state.products.map(p => p.id === payload.id ? payload : p),
-                error: null,}
+                error: null,
+                activeItem: null}
         case 'productSetActive':
             return {...state, activeItem: payload}
         case 'pending':
