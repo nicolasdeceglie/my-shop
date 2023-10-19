@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import {useCheckout} from "./hooks/useCheckout";
-import {ServerError} from "@/shared/*";
+import {ServerError} from "@/shared/";
 
 export function CheckoutPage() {
     const {
@@ -35,7 +35,6 @@ export function CheckoutPage() {
                     Confirm Order
                 </button>
             </form>
-            {JSON.stringify(user)}
         </div>
 
     )

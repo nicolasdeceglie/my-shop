@@ -1,7 +1,7 @@
 import React from "react";
 import {ComponentPreview, Previews} from "@react-buddy/ide-toolbox";
 import {PaletteTree} from "./palette";
-import {PrivateRoute} from "@/shared/*";
+import {PrivateRoute} from "@/shared/";
 
 const ComponentPreviews = () => {
     return (

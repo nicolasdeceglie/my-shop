@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Product } from '@/model/product';
 import { ServerError, Spinner } from '@/shared/';
 import { ProductCard } from './components/ProductCard';
 import {useCart, useCartPanel} from "@/services/cart";
@@ -7,13 +6,13 @@ import {useProductsService} from "@/services/products";
 
 
 export function ShopPage() {
-    const [products, setProducts] = useState<Product[]>([]);
     const openCartPanel = useCartPanel(state => state.openOverlay)
     const addToCart = useCart(state => state.addToCart)
+
     const {actions, state} = useProductsService()
 
     useEffect(() => {
-        actions.getProducts()
+        actions.getProducts().then(r => console.log(r))
     }, [])
 
     return (
@@ -25,7 +24,7 @@ export function ShopPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
                 {
-                    products.map(p => {
+                    state.products.map(p => {
                         return (
                             <ProductCard
                                 key={p.id}
